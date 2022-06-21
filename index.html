@@ -4,108 +4,104 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=], initial-scale=1.0">
-    <title>Formulário de pessoas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Formulário de cadastro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
+
 <body> 
     <div class="container py-5">
         <div class="row d-flex justify-content-center">
             <div class="col-lg-6">
-                <h1 class="text-center">Formulário de cadastro</h1>
-            </div>
-                <div >
-                    <label for="name">Nome</label>
-                    <input type="text" name="name" id="">
-                </div>
-                <div >
-                    <label for="CPF">CPF/CNPJ</label>
-                    <input type="text" name="CPF" id="">
-                </div>
-                <div >
-                    <label for="cep">CEP</label>
-                    <input type="text" name="cep" id="">
-                </div>
-                <div >
-                    <label for="endereco">Endereço</label>
-                    <input type="text" name="endereco" id="">
-                </div>
-                
-                <div >
-                    <label for="logradouro">Logradouro</label>
-                    <input type="text" name="logradouro" id="">
-                </div>
-                <div >
-                    <label for="cidade">Cidade</label>
-                    <input type="text" name="cidade" id="">
-                </div>
-                <div >
-                    <label for="estado">estado</label>
-                    <input type="text" name="estado" id="">
-                </div>
-                <div >
-                    <label for="bairro">Bairro</label>
-                    <input type="text" name="bairro" id="">
-                </div>
-                <div >
-                    <label for="numero">Número</label>
-                    <input type="text" name="numero" id="">
-                </div>
-                <div >
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="">
-                </div>
-                <div >
-                    <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="">
-                </div>
-                <div >
-                    <label for="telefone">Telefone</label>
-                    <input type="text" name="telefone" id="">
-                </div>
-                <div >
-                    <label for="opinioes">Opiniões</label>
-                    <input type="text" name="opinioes" id="">
-                </div>
-                <div >
-                    <label for="sexo">Sexo:</label>
-                </div>
-                    <div>
-                        <div class="form-check form-check-line"></div>
-                        <input class="form-check-input" type="radio" name="sexo" id="masculino" value="M">
-                        <label class="form-check label" for="masculino">Masc.
-
-                        </label>
+                <h1 class="text-center">Formulário de Cadastro</h1>
+                <form>
+                    <div class="form-group mb-3">
+                        <label for="name">Nome</label>
+                        <input class="form-control" type="text" name="name" id="name" placeholder="Digite seu nome...">
                     </div>
-                <div >
-                    <label for="name">Nome </label>
-                    <input type="text" name="name" id="">
-                </div>
-                <div >
-                    <label for="name">Nome </label>
-                    <input type="text" name="name" id="">
-                </div>
-                <div >
-                    <label for="name">Nome </label>
-                    <input type="text" name="name" id="">
-                </div>
-                <div >
-                    <label for="name">Nome </label>
-                    <input type="text" name="name" id="">
-                </div>
-                <div >
-                    <label for="name">Nome </label>
-                    <input type="text" name="name" id="">
-                </div>
-                <div >
-                    <label for="name">Nome </label>
-                    <input type="text" name="name" id="">
-                </div>
-            </div> 
+                    <div class="form-group mb-3">
+                        <label for="CPF">CPF/CNPJ</label>
+                        <input class="form-control" type="text" name="CPF" id="CPF" placeholder="Digite seu cpf...">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="date">Data de Nascimento</label>
+                        <input class="form-control" type="date" name="date" id="date">
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label for="sexo">Sexo</label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sexo" id="masculino" value="M">
+                                <label class="form-check label" for="masculino">Masculino</label>
+                            </div>
+                            <div class="form-check form-check-line">
+                                <input class="form-check-input" type="radio" name="sexo" id="feminino" value="F">
+                                <label class="form-check label" for="feminino">Feminino</label>
+                            </div>
+                            <div class="form-check form-check-line">
+                                <input class="form-check-input" type="radio" name="sexo" id="outro" value="O">
+                                <label class="form-check label" for="outro">Prefiro não informar</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="telefone">Telefone</label>
+                        <input class="form-control" type="text" name="telefone" id="telefone" placeholder="Digite seu telefone...">
+                    </div> 
+                    <div class="form-group mb-3">
+                        <label for="email">Email</label>
+                        <input class="form-control" type="email" name="email" id="email" placeholder="Digite seu email...">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="senha">Senha</label>
+                        <input class="form-control" type="password" name="senha" id="senha" placeholder="Digite sua senha...">
+                    </div> 
+                    <div class="form-group mb-3">
+                        <label for="cep">CEP</label>
+                        <input class="form-control" type="text" name="cep" id="cep" placeholder="Digite seu cep...">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="logradouro">Logradouro</label>
+                        <input class="form-control" type="text" name="logradouro" id="logradouro">
+                    </div>    
+                    <div class="form-group mb-3">
+                        <label for="cidade">Cidade</label>
+                        <input class="form-control" type="text" name="cidade" id="cidade">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="estado">Estado</label>
+                        <input class="form-control" type="text" name="estado" id="estado">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="bairro">Bairro</label>
+                        <input class="form-control" type="text" name="bairro" id="bairro">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="numero">Número</label>
+                        <input class="form-control" type="text" name="numero" id="numero">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="opinioes">Opiniões</label>
+                        <textarea class="form-control" name="opinioes" id="opinioes"></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Nome </label>
+                        <input class="form-control" type="text" name="name" id="name">
+                    </div>
+                    <div class="form-group mb-3">
+                        <button type="button" class="btn btn-outline-dark">Enviar</button>
+                    </div>
+                    <div class="form-group mb-3">
+                        <button type="button" class="btn btn-outline-dark">Voltar</button>
+                    </div>
+                    <div class="form-group mb-3">
+                        <button type="reset" class="btn btn-outline-dark">Limpar</button>
+                    </div>
+                    
+                </form>
+            </div>
         </div>
     </div>
-
-    
 </body>
 </html>
-
-
