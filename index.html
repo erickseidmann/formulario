@@ -3,105 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=], initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de cadastro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
-<body> 
+<body>
+    
     <div class="container py-5">
         <div class="row d-flex justify-content-center">
             <div class="col-lg-6">
                 <h1 class="text-center">Formulário de Cadastro</h1>
                 <form>
-                    <div class="form-group mb-3">
-                        <label for="name">Nome</label>
-                        <input class="form-control" type="text" name="name" id="name" placeholder="Digite seu nome...">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="CPF">CPF/CNPJ</label>
-                        <input class="form-control" type="text" name="CPF" id="CPF" placeholder="Digite seu cpf...">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="date">Data de Nascimento</label>
-                        <input class="form-control" type="date" name="date" id="date">
-                    </div>
-                    
-                    <div class="form-group mb-3">
-                        <label for="sexo">Sexo</label>
-                        <div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sexo" id="masculino" value="M">
-                                <label class="form-check label" for="masculino">Masculino</label>
+                    <div class="form-group">
+                        <label class="radio-inline col-sm-4"><input type="radio" name="optradio" value="juridica" 
+                            onclick="pessoa(this.value);">Pessoa Juridica</label>
+                        <label class="radio-inline col-sm-4"><input type="radio" name="optradio" value="fisica" 
+                            onclick="pessoa(this.value);">Pessoa Fisica</label>
+                    </div> 
+                    <br>               
+                    <div id="juridica" style="display:none;">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="razaoSocial">Razão Social</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="razaoSocial" name="razaoSocial" required>
                             </div>
-                            <div class="form-check form-check-line">
-                                <input class="form-check-input" type="radio" name="sexo" id="feminino" value="F">
-                                <label class="form-check label" for="feminino">Feminino</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="nomefantasia">Nome Fantasia</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="nomefantasia" name="nomefantasia" required >
                             </div>
-                            <div class="form-check form-check-line">
-                                <input class="form-check-input" type="radio" name="sexo" id="outro" value="O">
-                                <label class="form-check label" for="outro">Prefiro não informar</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="cnpj">CNPJ</label>
+                            <div class="col-sm-3">
+                                <input type="numbe" class="form-control cnpj" id="cnpj" name="cnpj" required>
                             </div>
                         </div>
                     </div>
+                    <div id="fisica">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="nome">Nome</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="nome" name="nome" required >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="CPF">CPF</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control cpf" id="CPF" name="CPF" maxlength="14" required autocomplete="off" onkeyup="mascara('###.###.###-##',this)">
+                            </div>                                         
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="dataDeNascimento">Data de Nascimento</label>
+                            <div class="col-sm-3">
+                                <input type="date" class="form-control" id="dataDeNascimento" name="dataDeNascimento" required>
+                            </div>                                         
+                        </div> 
+                        <div class="form-group mb-3">
+                            <label for="sexo">Sexo</label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo" id="masculino" value="M">
+                                    <label class="form-check label" for="masculino">Masculino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo" id="feminino" value="F">
+                                    <label class="form-check label" for="feminino">Feminino</label>
+                                </div>
+                                <div class=" form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo" id="outro" value="O">
+                                    <label class="form-check label" for="outro">Prefiro não informar</label>
+                                </div>
+                            </div>
+                        </div>                 
+                    </div>
+                    
+                    <script>
+                        function pessoa(tipo){
+                        
+                        if(tipo=="fisica"){
+                            document.getElementById("fisica").style.display = "inline";
+                            document.getElementById("juridica").style.display = "none";
+                        }else if(tipo=="juridica"){
+                            document.getElementById("fisica").style.display = "none";
+                            document.getElementById("juridica").style.display = "inline";
+                        }
+                        } 
+                    </script>
                     <div class="form-group mb-3">
                         <label for="telefone">Telefone</label>
-                        <input class="form-control" type="text" name="telefone" id="telefone" placeholder="Digite seu telefone...">
+                        <input class="form-control" type="tel" name="telefone" id="telefone" placeholder="Digite seu telefone..."  maxlength="11" required>
                     </div> 
                     <div class="form-group mb-3">
                         <label for="email">Email</label>
-                        <input class="form-control" type="email" name="email" id="email" placeholder="Digite seu email...">
+                        <input class="form-control" type="email" name="email" id="email" placeholder="Digite seu email..." required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="senha">Senha</label>
-                        <input class="form-control" type="password" name="senha" id="senha" placeholder="Digite sua senha...">
+                        <input class="form-control" type="password" name="senha" id="senha" placeholder="Digite sua senha..." required>
                     </div> 
                     <div class="form-group mb-3">
                         <label for="cep">CEP</label>
-                        <input class="form-control" type="text" name="cep" id="cep" placeholder="Digite seu cep...">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="logradouro">Logradouro</label>
-                        <input class="form-control" type="text" name="logradouro" id="logradouro">
-                    </div>    
-                    <div class="form-group mb-3">
-                        <label for="cidade">Cidade</label>
-                        <input class="form-control" type="text" name="cidade" id="cidade">
+                        <input class="form-control" type="text" name="cep" id="cep" placeholder="Digite seu cep..." maxlength="8" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="estado">Estado</label>
-                        <input class="form-control" type="text" name="estado" id="estado">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected>Escolher...</option>
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="logradouro">Logradouro</label>
+                        <input class="form-control" type="text" name="logradouro" id="logradouro" placeholder="Logradouro">
+                    </div>    
+                    <div class="form-group mb-3">
+                        <label for="cidade">Cidade</label>
+                        <input class="form-control" type="text" name="cidade" id="cidade" placeholder="Cidade">
                     </div>
                     <div class="form-group mb-3">
                         <label for="bairro">Bairro</label>
-                        <input class="form-control" type="text" name="bairro" id="bairro">
+                        <input class="form-control" type="text" name="bairro" id="bairro" placeholder="Bairro">
                     </div>
                     <div class="form-group mb-3">
                         <label for="numero">Número</label>
-                        <input class="form-control" type="text" name="numero" id="numero">
+                        <input class="form-control" type="text" name="numero" id="numero" placeholder="Número">
                     </div>
                     <div class="form-group mb-3">
                         <label for="opinioes">Opiniões</label>
                         <textarea class="form-control" name="opinioes" id="opinioes"></textarea>
                     </div>
-                    <div class="form-group mb-3">
-                        <label for="name">Nome </label>
-                        <input class="form-control" type="text" name="name" id="name">
+                    <div class="form-check mb-3 ">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+                        <label class="form-check-label" for="defaultCheck1">Eu aceito os termos e condições</label>
                     </div>
                     <div class="form-group mb-3">
-                        <button type="button" class="btn btn-outline-dark">Enviar</button>
+                        <button type="button" class="btn btn-outline-primary ">Enviar</button>
+                        <button type="submit" class="btn btn-outline-primary">Voltar</button>
+                        <button type="reset" class="btn btn-outline-primary">Limpar</button>
                     </div>
-                    <div class="form-group mb-3">
-                        <button type="button" class="btn btn-outline-dark">Voltar</button>
-                    </div>
-                    <div class="form-group mb-3">
-                        <button type="reset" class="btn btn-outline-dark">Limpar</button>
-                    </div>
-                    
                 </form>
             </div>
         </div>
     </div>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
