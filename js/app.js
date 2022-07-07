@@ -8,7 +8,9 @@ function pessoa(tipo){
     }
 }
 
-
+$(document).ready(function () {
+	$("#tele").mask('(00)0000-0000', { placeholder: '(__)_____-____' });
+})
 /*function mascara_cpf() {
     var cpf = document.getElementById('cpfpj')
     if(cpf.value.length == 3 || cpf.value.length == 7){
@@ -85,9 +87,6 @@ function validarCPF(cpf) {
 	return true;   
 }
 
-/*mascara usando jquery
+//mascara usando jquery
 
-$(document).ready(function () {
-	$('#telefone').mask('(00)0000-0000', {placeholder: '(__)____-____'});
-})
-*/
+
