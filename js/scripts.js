@@ -84,3 +84,10 @@ function validarCPF(cpf) {
 		return false;		
 	return true;   
 }
+
+/*mascara usando jquery
+
+$(document).ready(function () {
+	$('#telefone').mask('(00)0000-0000', {placeholder: '(__)____-____'});
+})
+*/
